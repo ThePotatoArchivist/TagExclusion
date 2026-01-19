@@ -15,6 +15,9 @@
 	"icon": "assets/tagexclusion/icon.png",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			"archives.tater.tagexclusion.test.TagExclusionTestDataGenerator"
+		]
 	},
 	"mixins": [
 	],
