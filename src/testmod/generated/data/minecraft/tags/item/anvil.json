@@ -1,5 +1,13 @@
 {
   "values": [
-    "minecraft:amethyst_block"
+    "#minecraft:wooden_doors",
+    {
+      "id": "minecraft:chipped_anvil",
+      "tagexclusion:exclude": true
+    },
+    {
+      "id": "minecraft:spruce_door",
+      "tagexclusion:exclude": true
+    }
   ]
 }
