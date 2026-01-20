@@ -56,21 +56,21 @@ public class TagExclusion implements ModInitializer {
 			string -> {
 				boolean exclude;
 				boolean required;
+
 				if (string.startsWith("!")) {
 					exclude = true;
 					string = string.substring(1);
 				} else
 					exclude = false;
+
                 if (string.endsWith("?")) {
 					required = false;
 					string = string.substring(0, string.length() - 1);
 				} else
 					required = true;
-                return parseTagOrElement(string).map(location -> {
-					var entry = getTagEntry(location, required);
-					entry.tagexclusion_setExclude(exclude);
-					return entry;
-				});
+
+                return parseTagOrElement(string).map(location -> getTagEntry(location, required)
+						.tagexclusion_setExclude(exclude));
 			},
 			tagEntry -> tagEntry.tagexclusion_exclude() ? "!" + tagEntry : tagEntry.toString()
 	);

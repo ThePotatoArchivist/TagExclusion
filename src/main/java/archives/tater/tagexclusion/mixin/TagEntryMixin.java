@@ -30,8 +30,9 @@ public class TagEntryMixin implements TagEntryExtension {
     }
 
     @Override
-    public void tagexclusion_setExclude(boolean exclude) {
+    public TagEntry tagexclusion_setExclude(boolean exclude) {
         this.exclude = exclude;
+        return (TagEntry) (Object) this;
     }
 
     @WrapOperation(
@@ -60,10 +61,7 @@ public class TagEntryMixin implements TagEntryExtension {
                 RecordCodecBuilder.create(instance -> instance.group(
                         MapCodec.assumeMapUnsafe(original).forGetter(Function.identity()),
                         Codec.BOOL.optionalFieldOf("tagexclusion:exclude", false).forGetter(TagEntry::tagexclusion_exclude)
-                ).apply(instance, (data, exclude) -> {
-                    data.tagexclusion_setExclude(exclude);
-                    return data;
-                })),
+                ).apply(instance, TagEntryExtension::tagexclusion_setExclude)),
                 original
         ));
     }
