@@ -74,7 +74,7 @@ public class TagExclusion implements ModInitializer {
                 return parseTagOrElement(string).map(location -> getTagEntry(location, required)
 						.tagexclusion_setExclude(exclude));
 			},
-			tagEntry -> tagEntry.tagexclusion_exclude() ? "!" + tagEntry : tagEntry.toString()
+			TagEntry::toString // Is this dangerous?
 	);
 
 	@Override

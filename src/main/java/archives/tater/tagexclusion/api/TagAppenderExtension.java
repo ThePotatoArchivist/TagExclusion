@@ -9,18 +9,30 @@ import net.minecraft.tags.TagKey;
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface TagAppenderExtension<E, T> {
 
+    /**
+     * Adds an excluded element
+     */
     default TagAppender<E, T> tagexclusion_exclude(E block) {
         return (TagAppender<E, T>) this;
     }
 
+    /**
+     * Adds an excluded optional element
+     */
     default TagAppender<E, T> tagexclusion_excludeOptional(E block) {
         return (TagAppender<E, T>) this;
     }
 
+    /**
+     * Adds an excluded tag
+     */
     default TagAppender<E, T> tagexclusion_excludeTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;
     }
 
+    /**
+     * Adds an excluded optional tag
+     */
     default TagAppender<E, T> tagexclusion_excludeOptionalTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;
     }

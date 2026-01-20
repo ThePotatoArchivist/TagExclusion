@@ -1,7 +1,7 @@
 package archives.tater.tagexclusion.mixin;
 
-import archives.tater.tagexclusion.api.TagEntryExtension;
 import archives.tater.tagexclusion.TagExclusion;
+import archives.tater.tagexclusion.api.TagEntryExtension;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -35,6 +35,16 @@ public class TagEntryMixin implements TagEntryExtension {
         return (TagEntry) (Object) this;
     }
 
+    @ModifyExpressionValue(
+            method = "toString",
+            at = @At(value = "NEW", target = "()Ljava/lang/StringBuilder;")
+    )
+    private StringBuilder representExclusion(StringBuilder original) {
+        if (exclude)
+            original.append('1');
+        return original;
+    }
+
     @WrapOperation(
             method = "method_43938",
             at = @At(value = "FIELD", target = "Lnet/minecraft/tags/TagEntry;required:Z", opcode = Opcodes.GETFIELD)
@@ -42,15 +52,6 @@ public class TagEntryMixin implements TagEntryExtension {
     private static boolean longFormIfExclude(TagEntry instance, Operation<Boolean> original) {
         return original.call(instance) && !instance.tagexclusion_exclude();
     }
-
-//    @SuppressWarnings("InvalidInjectorMethodSignature")
-//    @WrapOperation(
-//            method = "method_43941",
-//            at = @At(value = "INVOKE", target = "Lcom/mojang/datafixers/Products$P2;apply(Lcom/mojang/datafixers/kinds/Applicative;Ljava/util/function/BiFunction;)Lcom/mojang/datafixers/kinds/App;")
-//    )
-//    private static <T1, T2> App<RecordCodecBuilder.Mu<TagEntry>, TagEntry> extendCodec(Products.P2<RecordCodecBuilder.Mu<TagEntry>, T1, T2> instance, RecordCodecBuilder.Instance<TagEntry> instance2, BiFunction<T1, T2, TagEntry> function, Operation<App<RecordCodecBuilder.Mu<TagEntry>, TagEntry>> original) {
-//        return original.call(instance, instance2, function);
-//    }
 
     @ModifyExpressionValue(
             method = "<clinit>",

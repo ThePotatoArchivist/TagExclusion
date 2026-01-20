@@ -9,29 +9,47 @@ import net.minecraft.tags.TagEntry;
 @SuppressWarnings("unused")
 public interface TagEntryExtension {
 
+    /**
+     * @return If the tag entry is an exclusion entry
+     */
     default boolean tagexclusion_exclude() {
         throw new AssertionError("Implemented by mixin");
     }
 
+    /**
+     * Set if the tag entry should be an exclusion entry
+     */
     default TagEntry tagexclusion_setExclude(boolean exclude) {
         throw new AssertionError("Implemented by mixin");
     }
 
+    /**
+     * Creates an excluded tag {@link TagEntry}
+     */
     static TagEntry excludeTag(Identifier tag) {
         return TagEntry.tag(tag)
                 .tagexclusion_setExclude(true);
     }
 
+    /**
+     * Creates an excluded optional tag {@link TagEntry}
+     */
     static TagEntry excludeOptionalTag(Identifier tag) {
         return TagEntry.optionalTag(tag)
                 .tagexclusion_setExclude(true);
     }
 
+    /**
+     * Creates an excluded element {@link TagEntry}
+     */
     static TagEntry excludeElement(Identifier element) {
         return TagEntry.element(element)
                 .tagexclusion_setExclude(true);
     }
 
+    /**
+     * Creates an excluded optional element {@link TagEntry}
+     */
     static TagEntry excludeOptionalElement(Identifier element) {
         return TagEntry.optionalTag(element)
                 .tagexclusion_setExclude(true);

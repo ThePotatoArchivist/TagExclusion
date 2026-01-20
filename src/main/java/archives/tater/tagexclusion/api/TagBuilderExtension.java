@@ -9,18 +9,30 @@ import net.minecraft.tags.TagBuilder;
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface TagBuilderExtension {
 
+    /**
+     * Adds an excluded element
+     */
     default TagBuilder tagexclusion_excludeElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");
     }
 
+    /**
+     * Adds an excluded optional element
+     */
     default TagBuilder tagexclusion_excludeOptionalElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");
     }
 
+    /**
+     * Adds an excluded tag
+     */
     default TagBuilder tagexclusion_excludeTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }
 
+    /**
+     * Adds an excluded optional tag
+     */
     default TagBuilder tagexclusion_excludeOptionalTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }

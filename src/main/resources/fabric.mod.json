@@ -2,16 +2,16 @@
 	"schemaVersion": 1,
 	"id": "tagexclusion",
 	"version": "${version}",
-	"name": "TagExclusion",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Tag Exclusion",
+	"description": "Allow removing entries from tags",
 	"authors": [
-		"Me!"
+		"ThePotatoArchivist"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/tagexclusion/icon.png",
 	"environment": "*",
 	"entrypoints": {
