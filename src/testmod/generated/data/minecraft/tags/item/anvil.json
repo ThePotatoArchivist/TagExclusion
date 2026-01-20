@@ -1,7 +1,6 @@
 {
   "values": [
-    "!#minecraft:chipped_anvil?",
-    "minecraft:cow?",
-    "minecraft:cow_spawn_egg?"
+    "minecraft:cow_spawn_egg?",
+    "!#minecraft:chipped_anvil?"
   ]
 }

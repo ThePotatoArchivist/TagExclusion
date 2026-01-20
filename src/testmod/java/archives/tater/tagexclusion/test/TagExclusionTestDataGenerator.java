@@ -5,8 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
@@ -17,10 +15,9 @@ public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider((output, registriesFuture) -> new FabricTagProvider.ItemTagProvider(output, registriesFuture) {
             @Override
             protected void addTags(HolderLookup.Provider wrapperLookup) {
-                getOrCreateRawBuilder(ItemTags.ANVIL)
-                        .tagexclusion_excludeOptionalElement(BuiltInRegistries.ITEM.getKey(Items.CHIPPED_ANVIL))
-                        .addOptionalElement(Identifier.withDefaultNamespace("cow"))
-                        .addOptionalElement(BuiltInRegistries.ITEM.getKey(Items.COW_SPAWN_EGG));
+                valueLookupBuilder(ItemTags.ANVIL)
+                        .addOptional(Items.COW_SPAWN_EGG)
+                        .tagexclusion_excludeOptional(Items.CHIPPED_ANVIL);
             }
         });
     }

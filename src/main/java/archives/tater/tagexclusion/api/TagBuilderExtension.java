@@ -4,10 +4,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagBuilder;
 
 /**
- * Extensions to {@link TagBuilder}
+ * Interface-injected to {@link TagBuilder}
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface TagBuilderExtension {
+
     default TagBuilder tagexclusion_excludeElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");
     }

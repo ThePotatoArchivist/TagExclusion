@@ -3,6 +3,9 @@
 	"package": "archives.tater.tagexclusion.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"TagAppenderMixin",
+		"TagAppenderMixin$ProvidedTagBuilder1Mixin",
+		"TagAppenderMixin$ProvidedTagBuilder2Mixin",
 		"TagBuilderMixin",
 		"TagEntryMixin",
 		"TagLoaderMixin"
