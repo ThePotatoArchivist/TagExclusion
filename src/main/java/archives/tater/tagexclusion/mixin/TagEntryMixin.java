@@ -41,7 +41,7 @@ public class TagEntryMixin implements TagEntryExtension {
     )
     private StringBuilder representExclusion(StringBuilder original) {
         if (exclude)
-            original.append('1');
+            original.append('!');
         return original;
     }
 
@@ -57,7 +57,7 @@ public class TagEntryMixin implements TagEntryExtension {
             method = "<clinit>",
             at = @At(value = "INVOKE", target = "Lcom/mojang/serialization/codecs/RecordCodecBuilder;create(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;")
     )
-    private static Codec<TagEntry> test(Codec<TagEntry> original) {
+    private static Codec<TagEntry> wrapCodec(Codec<TagEntry> original) {
         return Codec.lazyInitialized(() -> Codec.withAlternative(
                 RecordCodecBuilder.create(instance -> instance.group(
                         MapCodec.assumeMapUnsafe(original).forGetter(Function.identity()),

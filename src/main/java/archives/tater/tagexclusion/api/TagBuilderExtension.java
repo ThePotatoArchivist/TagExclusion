@@ -36,4 +36,11 @@ public interface TagBuilderExtension {
     default TagBuilder tagexclusion_excludeOptionalTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }
+
+    /**
+     * Force-adds an excluded tag
+     */
+    default TagBuilder tagexclusion_excludeForcedTag(Identifier tag) {
+        throw new AssertionError("Implemented by mixin");
+    }
 }

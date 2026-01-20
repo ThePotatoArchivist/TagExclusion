@@ -1,5 +1,7 @@
 package archives.tater.tagexclusion.api;
 
+import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
+
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagEntry;
 
@@ -36,6 +38,14 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeOptionalTag(Identifier tag) {
         return TagEntry.optionalTag(tag)
+                .tagexclusion_setExclude(true);
+    }
+
+    /**
+     * Creates an excluded {@link ForcedTagEntry}
+     */
+    static TagEntry excludeForcedTag(Identifier tag) {
+        return new ForcedTagEntry(tag)
                 .tagexclusion_setExclude(true);
     }
 

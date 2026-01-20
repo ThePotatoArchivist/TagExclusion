@@ -17,7 +17,9 @@ public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
             protected void addTags(HolderLookup.Provider wrapperLookup) {
                 valueLookupBuilder(ItemTags.ANVIL)
                         .addOptional(Items.COW_SPAWN_EGG)
-                        .tagexclusion_excludeOptional(Items.CHIPPED_ANVIL);
+                        .tagexclusion_excludeOptional(Items.CHIPPED_ANVIL)
+                        .forceAddTag(ItemTags.LOGS)
+                        .tagexclusion_forceExcludeTag(ItemTags.LOGS_THAT_BURN);
             }
         });
     }

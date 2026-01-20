@@ -1,6 +1,8 @@
 {
   "values": [
     "minecraft:cow_spawn_egg?",
-    "!#minecraft:chipped_anvil?"
+    "!#minecraft:chipped_anvil?",
+    "#minecraft:logs",
+    "!#minecraft:logs_that_burn"
   ]
 }

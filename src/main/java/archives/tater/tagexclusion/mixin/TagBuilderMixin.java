@@ -39,4 +39,10 @@ public abstract class TagBuilderMixin implements TagBuilderExtension {
         add(TagEntryExtension.excludeOptionalTag(tag));
         return (TagBuilder) (Object) this;
     }
+
+    @Override
+    public TagBuilder tagexclusion_excludeForcedTag(Identifier tag) {
+        add(TagEntryExtension.excludeForcedTag(tag));
+        return (TagBuilder) (Object) this;
+    }
 }

@@ -48,6 +48,12 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
             val$builder.tagexclusion_excludeOptionalTag(tag.location());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
+
+        @Override
+        public TagAppender<ResourceKey<T>, T> tagexclusion_forceExcludeTag(TagKey<T> tag) {
+            val$builder.tagexclusion_excludeForcedTag(tag.location());
+            return (TagAppender<ResourceKey<T>, T>) this;
+        }
     }
 
     @Mixin(targets = "net.minecraft.data.tags.TagAppender$2")
@@ -81,6 +87,12 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
         @Override
         public TagAppender<U, T> tagexclusion_excludeOptionalTag(TagKey<T> tag) {
             val$original.tagexclusion_excludeOptionalTag(tag);
+            return (TagAppender<U, T>) this;
+        }
+
+        @Override
+        public TagAppender<U, T> tagexclusion_forceExcludeTag(TagKey<T> tag) {
+            val$original.tagexclusion_forceExcludeTag(tag);
             return (TagAppender<U, T>) this;
         }
 
