@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion;
+package archives.tater.tagexclusion.api;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagBuilder;
@@ -6,6 +6,7 @@ import net.minecraft.tags.TagBuilder;
 /**
  * Extensions to {@link TagBuilder}
  */
+@SuppressWarnings("unused")
 public interface TagBuilderExtension {
     default TagBuilder tagexclusion_excludeElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");

@@ -1,6 +1,6 @@
 package archives.tater.tagexclusion.mixin;
 
-import archives.tater.tagexclusion.TagEntryExtension;
+import archives.tater.tagexclusion.api.TagEntryExtension;
 import archives.tater.tagexclusion.TagExclusion;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

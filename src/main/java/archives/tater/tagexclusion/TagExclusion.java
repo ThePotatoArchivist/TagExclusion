@@ -10,11 +10,13 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.util.ExtraCodecs;
 
+import org.jetbrains.annotations.ApiStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
+@ApiStatus.Internal
 public class TagExclusion implements ModInitializer {
 	public static final String MOD_ID = "tagexclusion";
 
@@ -36,7 +38,7 @@ public class TagExclusion implements ModInitializer {
 	/**
 	 * @see ExtraCodecs#TAG_OR_ELEMENT_ID
 	 */
-	public static DataResult<ExtraCodecs.TagOrElementLocation> parseTagOrElement(String string) {
+	private static DataResult<ExtraCodecs.TagOrElementLocation> parseTagOrElement(String string) {
 		return string.startsWith("#")
 				? Identifier.read(string.substring(1)).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, true))
 				: Identifier.read(string).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, false));

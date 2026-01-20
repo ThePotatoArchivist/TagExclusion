@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion;
+package archives.tater.tagexclusion.api;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagEntry;
@@ -6,9 +6,10 @@ import net.minecraft.tags.TagEntry;
 /**
  * Extensions to {@link net.minecraft.tags.TagEntry}
  */
+@SuppressWarnings("unused")
 public interface TagEntryExtension {
     default boolean tagexclusion_exclude() {
-        return false;
+        throw new AssertionError("Implemented by mixin");
     }
 
     default TagEntry tagexclusion_setExclude(boolean exclude) {

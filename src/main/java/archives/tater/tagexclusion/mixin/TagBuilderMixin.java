@@ -1,7 +1,7 @@
 package archives.tater.tagexclusion.mixin;
 
-import archives.tater.tagexclusion.TagBuilderExtension;
-import archives.tater.tagexclusion.TagEntryExtension;
+import archives.tater.tagexclusion.api.TagBuilderExtension;
+import archives.tater.tagexclusion.api.TagEntryExtension;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

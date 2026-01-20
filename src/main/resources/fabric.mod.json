@@ -17,17 +17,10 @@
 	"entrypoints": {
 		"main": [
 			"archives.tater.tagexclusion.TagExclusion"
-		],
-		"client": [
-			"archives.tater.tagexclusion.TagExclusionClient"
 		]
 	},
 	"mixins": [
-		"tagexclusion.mixins.json",
-		{
-			"config": "tagexclusion.client.mixins.json",
-			"environment": "client"
-		}
+		"tagexclusion.mixins.json"
 	],
 	"accessWidener": "tagexclusion.classtweaker",
 	"depends": {
