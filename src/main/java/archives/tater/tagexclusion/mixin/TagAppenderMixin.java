@@ -2,11 +2,12 @@ package archives.tater.tagexclusion.mixin;
 
 import archives.tater.tagexclusion.api.TagAppenderExtension;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.minecraft.data.tags.TagAppender;
 import net.minecraft.resources.ResourceKey;
@@ -83,11 +84,13 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
             return (TagAppender<U, T>) this;
         }
 
-        @Redirect(
+        // Fixes vanilla bug
+        // Remove if https://github.com/FabricMC/fabric-api/pull/5148 gets merged
+        @WrapOperation(
                 method = "addOptional",
                 at = @At(value = "INVOKE", target = "Lnet/minecraft/data/tags/TagAppender;add(Ljava/lang/Object;)Lnet/minecraft/data/tags/TagAppender;")
         )
-        private TagAppender<E, T> fixOptional(TagAppender<E, T> instance, E e) {
+        private TagAppender<E, T> fixOptional(TagAppender<E, T> instance, E e, Operation<TagAppender<E, T>> original) {
             return instance.addOptional(e);
         }
     }
