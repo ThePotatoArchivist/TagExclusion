@@ -1,7 +1,5 @@
 package archives.tater.tagexclusion.test;
 
-import archives.tater.tagexclusion.TagExclusion;
-
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -16,7 +14,6 @@ import net.minecraft.world.item.Items;
 public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        TagExclusion.ENCODE_IN_SHORT_FORMAT = true;
         var pack = fabricDataGenerator.createPack();
         pack.addProvider((output, registriesFuture) -> new FabricTagProvider.ItemTagProvider(output, registriesFuture) {
             @Override

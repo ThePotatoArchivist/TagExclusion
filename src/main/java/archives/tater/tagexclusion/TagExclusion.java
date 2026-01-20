@@ -1,6 +1,8 @@
 package archives.tater.tagexclusion;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.metadata.ModDependency;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -8,9 +10,10 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.util.ExtraCodecs;
 
-import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Optional;
 
 public class TagExclusion implements ModInitializer {
 	public static final String MOD_ID = "tagexclusion";
@@ -20,7 +23,15 @@ public class TagExclusion implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static boolean ENCODE_IN_SHORT_FORMAT = false;
+	public static final boolean ENCODE_IN_SHORT_FORMAT = Optional.ofNullable(System.getProperty("fabric-api.datagen.modid"))
+			.flatMap(modId -> FabricLoader.getInstance().getModContainer(modId))
+			.map(modContainer ->
+					modContainer.getMetadata().getDependencies().stream().anyMatch(modDependency ->
+							modDependency.getKind() == ModDependency.Kind.DEPENDS &&
+									modDependency.getModId().equals(TagExclusion.MOD_ID)
+					)
+			)
+			.orElse(false);
 
 	/**
 	 * @see ExtraCodecs#TAG_OR_ELEMENT_ID
@@ -31,7 +42,7 @@ public class TagExclusion implements ModInitializer {
 				: Identifier.read(string).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, false));
 	}
 
-	private static @NonNull TagEntry getTagEntry(ExtraCodecs.TagOrElementLocation location, boolean required) {
+	private static TagEntry getTagEntry(ExtraCodecs.TagOrElementLocation location, boolean required) {
 		return location.tag()
 				? required
 						? TagEntry.tag(location.id())
@@ -48,9 +59,8 @@ public class TagExclusion implements ModInitializer {
 				if (string.startsWith("!")) {
 					exclude = true;
 					string = string.substring(1);
-				} else {
-                    exclude = false;
-                }
+				} else
+					exclude = false;
                 if (string.endsWith("?")) {
 					required = false;
 					string = string.substring(0, string.length() - 1);
