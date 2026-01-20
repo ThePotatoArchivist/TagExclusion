@@ -1,6 +1,7 @@
 package archives.tater.tagexclusion.mixin;
 
 import archives.tater.tagexclusion.TagEntryExtension;
+import archives.tater.tagexclusion.TagExclusion;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.objectweb.asm.Opcodes;
 
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -64,5 +66,17 @@ public class TagEntryMixin implements TagEntryExtension {
                 })),
                 original
         ));
+    }
+
+    @ModifyExpressionValue(
+            method = "<clinit>",
+            at = @At(value = "INVOKE", target = "Lcom/mojang/serialization/Codec;xmap(Ljava/util/function/Function;Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;")
+    )
+    private static Codec<TagEntry> addExtraCodec(Codec<TagEntry> original) {
+        return Codec.either(TagExclusion.TAG_ENTRY_SHORT_CODEC, original)
+                .xmap(
+                        either -> either.map(Function.identity(), Function.identity()),
+                        tagEntry -> TagExclusion.ENCODE_IN_SHORT_FORMAT ? Either.left(tagEntry) : Either.right(tagEntry)
+                );
     }
 }

@@ -1,13 +1,7 @@
 {
   "values": [
-    "#minecraft:wooden_doors",
-    {
-      "id": "minecraft:chipped_anvil",
-      "tagexclusion:exclude": true
-    },
-    {
-      "id": "minecraft:spruce_door",
-      "tagexclusion:exclude": true
-    }
+    "!minecraft:chipped_anvil",
+    "minecraft:cow?",
+    "minecraft:cow_spawn_egg?"
   ]
 }

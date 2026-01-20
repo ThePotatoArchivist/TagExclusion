@@ -1,8 +1,9 @@
 {
   "values": [
     {
-      "id": "minecraft:zombie",
-      "tagexclusion:exclude": true
+      "id": "minecraft:zoo",
+      "tagexclusion:exclude": true,
+      "required": false
     }
   ]
 }
