@@ -5,7 +5,14 @@ package archives.tater.tagexclusion.api
 import net.minecraft.data.tags.TagAppender
 import net.minecraft.resources.Identifier
 import net.minecraft.tags.TagBuilder
+import net.minecraft.tags.TagEntry
 import net.minecraft.tags.TagKey
+
+var TagEntry.isExclude
+    get() = tagexclusion_exclude()
+    set(value) {
+        tagexclusion_setExclude(value)
+    }
 
 fun TagBuilder.excludeElement(element: Identifier) = apply { tagexclusion_excludeElement(element) }
 fun TagBuilder.excludeOptionalElement(element: Identifier) = apply { tagexclusion_excludeOptionalElement(element) }
