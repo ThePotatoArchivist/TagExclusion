@@ -97,7 +97,7 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
         }
 
         // Fixes vanilla bug
-        // Remove if https://github.com/FabricMC/fabric-api/pull/5148 gets merged
+        // Remove when porting to 26.1, merged into FAPI
         @WrapOperation(
                 method = "addOptional",
                 at = @At(value = "INVOKE", target = "Lnet/minecraft/data/tags/TagAppender;add(Ljava/lang/Object;)Lnet/minecraft/data/tags/TagAppender;")
