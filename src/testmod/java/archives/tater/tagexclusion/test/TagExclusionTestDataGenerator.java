@@ -22,5 +22,6 @@ public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
                         .tagexclusion_forceExcludeTag(ItemTags.LOGS_THAT_BURN);
             }
         });
+        pack.addProvider(TagGeneratorKt::new);
     }
 }
