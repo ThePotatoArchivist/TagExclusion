@@ -13,6 +13,8 @@ class TagGeneratorKt(output: FabricDataOutput, registriesFuture: CompletableFutu
     override fun addTags(wrapperLookup: HolderLookup.Provider) {
         with (valueLookupBuilder(ItemTags.LEAVES)) {
             exclude(Items.PALE_OAK_LEAVES)
+            exclude(Items.NETHER_WART_BLOCK)
+            add(Items.PALE_OAK_LEAVES)
         }
     }
 
