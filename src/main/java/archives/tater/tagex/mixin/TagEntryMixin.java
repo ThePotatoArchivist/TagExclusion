@@ -61,7 +61,7 @@ public class TagEntryMixin implements TagEntryExtension {
         return Codec.lazyInitialized(() -> Codec.withAlternative(
                 RecordCodecBuilder.create(instance -> instance.group(
                         MapCodec.assumeMapUnsafe(original).forGetter(Function.identity()),
-                        Codec.BOOL.optionalFieldOf("tagex:exclude", false).forGetter(TagEntry::tagex_exclude)
+                        Codec.BOOL.optionalFieldOf(TagExclusion.TAG_ENTRY_EXCLUDE, false).forGetter(TagEntry::tagex_exclude)
                 ).apply(instance, TagEntryExtension::tagex_setExclude)),
                 original
         ));

@@ -25,6 +25,8 @@ public class TagExclusion implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static final String TAG_ENTRY_EXCLUDE = "tagex:exclude";
+
 	public static final boolean ENCODE_IN_SHORT_FORMAT = Optional.ofNullable(System.getProperty("fabric-api.datagen.modid"))
 			.flatMap(modId -> FabricLoader.getInstance().getModContainer(modId))
 			.map(modContainer ->
