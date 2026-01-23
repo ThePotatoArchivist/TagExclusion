@@ -3,13 +3,13 @@
 	"id": "tagex",
 	"version": "${version}",
 	"name": "Tag Exclusion",
-	"description": "Allow removing entries from tags",
+	"description": "Library & utility for removing entries from tags",
 	"authors": [
 		"ThePotatoArchivist"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/tag-exclusion",
+		"sources": "https://github.com/ThePotatoArchivist/TagExclusion"
 	},
 	"license": "MIT",
 	"icon": "assets/tagex/icon.png",
