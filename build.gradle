@@ -58,20 +58,20 @@ loom {
 			name = "Testmod Data Generation"
 			vmArg("-Dfabric-api.datagen")
 			vmArg("-Dfabric-api.datagen.output-dir=${file("src/testmod/generated")}")
-			vmArg("-Dfabric-api.datagen.modid=tagexclusiontest")
+			vmArg("-Dfabric-api.datagen.modid=tagextest")
 			runDir("build/datagen")
 			source(testmod)
 		}
 	}
 
 	mods {
-		"tagexclusion" {
+		"tagex" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
 	}
 
-	accessWidenerPath = file("src/main/resources/tagexclusion.classtweaker")
+	accessWidenerPath = file("src/main/resources/tagex.classtweaker")
 }
 
 dependencies {

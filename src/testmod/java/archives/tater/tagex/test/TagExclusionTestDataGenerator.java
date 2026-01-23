@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion.test;
+package archives.tater.tagex.test;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -17,9 +17,9 @@ public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
             protected void addTags(HolderLookup.Provider wrapperLookup) {
                 valueLookupBuilder(ItemTags.ANVIL)
                         .addOptional(Items.COW_SPAWN_EGG)
-                        .tagexclusion_excludeOptional(Items.CHIPPED_ANVIL)
+                        .tagex_excludeOptional(Items.CHIPPED_ANVIL)
                         .forceAddTag(ItemTags.LOGS)
-                        .tagexclusion_forceExcludeTag(ItemTags.LOGS_THAT_BURN);
+                        .tagex_forceExcludeTag(ItemTags.LOGS_THAT_BURN);
             }
         });
         pack.addProvider(TagGeneratorKt::new);

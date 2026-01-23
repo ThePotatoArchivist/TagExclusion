@@ -2,7 +2,7 @@
   "values": [
     {
       "id": "minecraft:zoo",
-      "tagexclusion:exclude": true,
+      "tagex:exclude": true,
       "required": false
     }
   ]

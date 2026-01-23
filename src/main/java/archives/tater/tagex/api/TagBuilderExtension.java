@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion.api;
+package archives.tater.tagex.api;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagBuilder;
@@ -12,35 +12,35 @@ public interface TagBuilderExtension {
     /**
      * Adds an excluded element
      */
-    default TagBuilder tagexclusion_excludeElement(Identifier element) {
+    default TagBuilder tagex_excludeElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");
     }
 
     /**
      * Adds an excluded optional element
      */
-    default TagBuilder tagexclusion_excludeOptionalElement(Identifier element) {
+    default TagBuilder tagex_excludeOptionalElement(Identifier element) {
         throw new AssertionError("Implemented by mixin");
     }
 
     /**
      * Adds an excluded tag
      */
-    default TagBuilder tagexclusion_excludeTag(Identifier tag) {
+    default TagBuilder tagex_excludeTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }
 
     /**
      * Adds an excluded optional tag
      */
-    default TagBuilder tagexclusion_excludeOptionalTag(Identifier tag) {
+    default TagBuilder tagex_excludeOptionalTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }
 
     /**
      * Force-adds an excluded tag
      */
-    default TagBuilder tagexclusion_excludeForcedTag(Identifier tag) {
+    default TagBuilder tagex_excludeForcedTag(Identifier tag) {
         throw new AssertionError("Implemented by mixin");
     }
 }

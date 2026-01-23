@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion;
+package archives.tater.tagex;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @ApiStatus.Internal
 public class TagExclusion implements ModInitializer {
-	public static final String MOD_ID = "tagexclusion";
+	public static final String MOD_ID = "tagex";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -72,7 +72,7 @@ public class TagExclusion implements ModInitializer {
 					required = true;
 
                 return parseTagOrElement(string).map(location -> getTagEntry(location, required)
-						.tagexclusion_setExclude(exclude));
+						.tagex_setExclude(exclude));
 			},
 			TagEntry::toString // Is this dangerous?
 	);

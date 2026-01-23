@@ -1,6 +1,6 @@
-package archives.tater.tagexclusion.mixin;
+package archives.tater.tagex.mixin;
 
-import archives.tater.tagexclusion.api.TagAppenderExtension;
+import archives.tater.tagex.api.TagAppenderExtension;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -26,32 +26,32 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
         TagBuilder val$builder;
 
         @Override
-        public TagAppender<ResourceKey<T>, T> tagexclusion_exclude(ResourceKey<T> resourceKey) {
-            val$builder.tagexclusion_excludeElement(resourceKey.identifier());
+        public TagAppender<ResourceKey<T>, T> tagex_exclude(ResourceKey<T> resourceKey) {
+            val$builder.tagex_excludeElement(resourceKey.identifier());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
 
         @Override
-        public TagAppender<ResourceKey<T>, T> tagexclusion_excludeOptional(ResourceKey<T> resourceKey) {
-            val$builder.tagexclusion_excludeOptionalElement(resourceKey.identifier());
+        public TagAppender<ResourceKey<T>, T> tagex_excludeOptional(ResourceKey<T> resourceKey) {
+            val$builder.tagex_excludeOptionalElement(resourceKey.identifier());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
 
         @Override
-        public TagAppender<ResourceKey<T>, T> tagexclusion_excludeTag(TagKey<T> tag) {
-            val$builder.tagexclusion_excludeTag(tag.location());
+        public TagAppender<ResourceKey<T>, T> tagex_excludeTag(TagKey<T> tag) {
+            val$builder.tagex_excludeTag(tag.location());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
 
         @Override
-        public TagAppender<ResourceKey<T>, T> tagexclusion_excludeOptionalTag(TagKey<T> tag) {
-            val$builder.tagexclusion_excludeOptionalTag(tag.location());
+        public TagAppender<ResourceKey<T>, T> tagex_excludeOptionalTag(TagKey<T> tag) {
+            val$builder.tagex_excludeOptionalTag(tag.location());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
 
         @Override
-        public TagAppender<ResourceKey<T>, T> tagexclusion_forceExcludeTag(TagKey<T> tag) {
-            val$builder.tagexclusion_excludeForcedTag(tag.location());
+        public TagAppender<ResourceKey<T>, T> tagex_forceExcludeTag(TagKey<T> tag) {
+            val$builder.tagex_excludeForcedTag(tag.location());
             return (TagAppender<ResourceKey<T>, T>) this;
         }
     }
@@ -67,32 +67,32 @@ public interface TagAppenderMixin<E, T> extends TagAppenderExtension<E, T> {
         Function<U, E> val$converter;
 
         @Override
-        public TagAppender<U, T> tagexclusion_exclude(U block) {
-            val$original.tagexclusion_exclude(val$converter.apply(block));
+        public TagAppender<U, T> tagex_exclude(U block) {
+            val$original.tagex_exclude(val$converter.apply(block));
             return (TagAppender<U, T>) this;
         }
 
         @Override
-        public TagAppender<U, T> tagexclusion_excludeOptional(U block) {
-            val$original.tagexclusion_excludeOptional(val$converter.apply(block));
+        public TagAppender<U, T> tagex_excludeOptional(U block) {
+            val$original.tagex_excludeOptional(val$converter.apply(block));
             return (TagAppender<U, T>) this;
         }
 
         @Override
-        public TagAppender<U, T> tagexclusion_excludeTag(TagKey<T> tag) {
-            val$original.tagexclusion_excludeTag(tag);
+        public TagAppender<U, T> tagex_excludeTag(TagKey<T> tag) {
+            val$original.tagex_excludeTag(tag);
             return (TagAppender<U, T>) this;
         }
 
         @Override
-        public TagAppender<U, T> tagexclusion_excludeOptionalTag(TagKey<T> tag) {
-            val$original.tagexclusion_excludeOptionalTag(tag);
+        public TagAppender<U, T> tagex_excludeOptionalTag(TagKey<T> tag) {
+            val$original.tagex_excludeOptionalTag(tag);
             return (TagAppender<U, T>) this;
         }
 
         @Override
-        public TagAppender<U, T> tagexclusion_forceExcludeTag(TagKey<T> tag) {
-            val$original.tagexclusion_forceExcludeTag(tag);
+        public TagAppender<U, T> tagex_forceExcludeTag(TagKey<T> tag) {
+            val$original.tagex_forceExcludeTag(tag);
             return (TagAppender<U, T>) this;
         }
 

@@ -1,7 +1,7 @@
-package archives.tater.tagexclusion.mixin;
+package archives.tater.tagex.mixin;
 
-import archives.tater.tagexclusion.TagExclusion;
-import archives.tater.tagexclusion.api.TagEntryExtension;
+import archives.tater.tagex.TagExclusion;
+import archives.tater.tagex.api.TagEntryExtension;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -25,12 +25,12 @@ public class TagEntryMixin implements TagEntryExtension {
     private boolean exclude = false;
 
     @Override
-    public boolean tagexclusion_exclude() {
+    public boolean tagex_exclude() {
         return exclude;
     }
 
     @Override
-    public TagEntry tagexclusion_setExclude(boolean exclude) {
+    public TagEntry tagex_setExclude(boolean exclude) {
         this.exclude = exclude;
         return (TagEntry) (Object) this;
     }
@@ -50,7 +50,7 @@ public class TagEntryMixin implements TagEntryExtension {
             at = @At(value = "FIELD", target = "Lnet/minecraft/tags/TagEntry;required:Z", opcode = Opcodes.GETFIELD)
     )
     private static boolean longFormIfExclude(TagEntry instance, Operation<Boolean> original) {
-        return original.call(instance) && !instance.tagexclusion_exclude();
+        return original.call(instance) && !instance.tagex_exclude();
     }
 
     @ModifyExpressionValue(
@@ -61,8 +61,8 @@ public class TagEntryMixin implements TagEntryExtension {
         return Codec.lazyInitialized(() -> Codec.withAlternative(
                 RecordCodecBuilder.create(instance -> instance.group(
                         MapCodec.assumeMapUnsafe(original).forGetter(Function.identity()),
-                        Codec.BOOL.optionalFieldOf("tagexclusion:exclude", false).forGetter(TagEntry::tagexclusion_exclude)
-                ).apply(instance, TagEntryExtension::tagexclusion_setExclude)),
+                        Codec.BOOL.optionalFieldOf("tagex:exclude", false).forGetter(TagEntry::tagex_exclude)
+                ).apply(instance, TagEntryExtension::tagex_setExclude)),
                 original
         ));
     }

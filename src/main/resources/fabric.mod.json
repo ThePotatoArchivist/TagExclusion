@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "tagexclusion",
+	"id": "tagex",
 	"version": "${version}",
 	"name": "Tag Exclusion",
 	"description": "Allow removing entries from tags",
@@ -12,17 +12,17 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/tagexclusion/icon.png",
+	"icon": "assets/tagex/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"archives.tater.tagexclusion.TagExclusion"
+			"archives.tater.tagex.TagExclusion"
 		]
 	},
 	"mixins": [
-		"tagexclusion.mixins.json"
+		"tagex.mixins.json"
 	],
-	"accessWidener": "tagexclusion.classtweaker",
+	"accessWidener": "tagex.classtweaker",
 	"depends": {
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21.11",

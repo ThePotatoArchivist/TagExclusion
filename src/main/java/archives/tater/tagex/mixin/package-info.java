@@ -1,4 +1,4 @@
 @NullMarked
-package archives.tater.tagexclusion.mixin;
+package archives.tater.tagex.mixin;
 
 import org.jspecify.annotations.NullMarked;

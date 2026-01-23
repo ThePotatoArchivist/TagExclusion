@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "tagexclusiontest",
+	"id": "tagextest",
 	"version": "${version}",
 	"name": "Tag Exclusion Test",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -12,11 +12,11 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/tagexclusion/icon.png",
+	"icon": "assets/tagex/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"fabric-datagen": [
-			"archives.tater.tagexclusion.test.TagExclusionTestDataGenerator"
+			"archives.tater.tagex.test.TagExclusionTestDataGenerator"
 		]
 	},
 	"mixins": [
@@ -26,6 +26,6 @@
 		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*",
-		"tagexclusion": "*"
+		"tagex": "*"
 	}
 }

@@ -1,6 +1,6 @@
-package archives.tater.tagexclusion.test
+package archives.tater.tagex.test
 
-import archives.tater.tagexclusion.api.exclude
+import archives.tater.tagex.api.exclude
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.minecraft.core.HolderLookup

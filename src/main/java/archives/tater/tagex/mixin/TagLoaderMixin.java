@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion.mixin;
+package archives.tater.tagex.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +18,6 @@ public class TagLoaderMixin {
             index = 1
     )
     private <T> Consumer<T> excludeEntries(Consumer<T> consumer, @Local TagLoader.EntryWithSource tagEntry, @Local SequencedSet<T> entries) {
-        return tagEntry.entry().tagexclusion_exclude() ? entries::remove : consumer;
+        return tagEntry.entry().tagex_exclude() ? entries::remove : consumer;
     }
 }

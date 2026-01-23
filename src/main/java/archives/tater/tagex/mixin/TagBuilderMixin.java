@@ -1,7 +1,7 @@
-package archives.tater.tagexclusion.mixin;
+package archives.tater.tagex.mixin;
 
-import archives.tater.tagexclusion.api.TagBuilderExtension;
-import archives.tater.tagexclusion.api.TagEntryExtension;
+import archives.tater.tagex.api.TagBuilderExtension;
+import archives.tater.tagex.api.TagEntryExtension;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,31 +17,31 @@ public abstract class TagBuilderMixin implements TagBuilderExtension {
     public abstract TagBuilder add(TagEntry entry);
 
     @Override
-    public TagBuilder tagexclusion_excludeElement(Identifier element) {
+    public TagBuilder tagex_excludeElement(Identifier element) {
         add(TagEntryExtension.excludeElement(element));
         return (TagBuilder) (Object) this;
     }
 
     @Override
-    public TagBuilder tagexclusion_excludeOptionalElement(Identifier element) {
+    public TagBuilder tagex_excludeOptionalElement(Identifier element) {
         add(TagEntryExtension.excludeOptionalElement(element));
         return (TagBuilder) (Object) this;
     }
 
     @Override
-    public TagBuilder tagexclusion_excludeTag(Identifier tag) {
+    public TagBuilder tagex_excludeTag(Identifier tag) {
         add(TagEntryExtension.excludeTag(tag));
         return (TagBuilder) (Object) this;
     }
 
     @Override
-    public TagBuilder tagexclusion_excludeOptionalTag(Identifier tag) {
+    public TagBuilder tagex_excludeOptionalTag(Identifier tag) {
         add(TagEntryExtension.excludeOptionalTag(tag));
         return (TagBuilder) (Object) this;
     }
 
     @Override
-    public TagBuilder tagexclusion_excludeForcedTag(Identifier tag) {
+    public TagBuilder tagex_excludeForcedTag(Identifier tag) {
         add(TagEntryExtension.excludeForcedTag(tag));
         return (TagBuilder) (Object) this;
     }

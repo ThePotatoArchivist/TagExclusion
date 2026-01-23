@@ -1,5 +1,0 @@
-classTweaker v1 named
-
-transitive-inject-interface net/minecraft/tags/TagEntry archives/tater/tagexclusion/api/TagEntryExtension
-transitive-inject-interface net/minecraft/tags/TagBuilder archives/tater/tagexclusion/api/TagBuilderExtension
-transitive-inject-interface net/minecraft/data/tags/TagAppender archives/tater/tagexclusion/api/TagAppenderExtension<TE;TT;>

@@ -1,4 +1,4 @@
-package archives.tater.tagexclusion.api;
+package archives.tater.tagex.api;
 
 import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
 
@@ -14,14 +14,14 @@ public interface TagEntryExtension {
     /**
      * @return If the tag entry is an exclusion entry
      */
-    default boolean tagexclusion_exclude() {
+    default boolean tagex_exclude() {
         throw new AssertionError("Implemented by mixin");
     }
 
     /**
      * Set if the tag entry should be an exclusion entry
      */
-    default TagEntry tagexclusion_setExclude(boolean exclude) {
+    default TagEntry tagex_setExclude(boolean exclude) {
         throw new AssertionError("Implemented by mixin");
     }
 
@@ -30,7 +30,7 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeTag(Identifier tag) {
         return TagEntry.tag(tag)
-                .tagexclusion_setExclude(true);
+                .tagex_setExclude(true);
     }
 
     /**
@@ -38,7 +38,7 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeOptionalTag(Identifier tag) {
         return TagEntry.optionalTag(tag)
-                .tagexclusion_setExclude(true);
+                .tagex_setExclude(true);
     }
 
     /**
@@ -46,7 +46,7 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeForcedTag(Identifier tag) {
         return new ForcedTagEntry(tag)
-                .tagexclusion_setExclude(true);
+                .tagex_setExclude(true);
     }
 
     /**
@@ -54,7 +54,7 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeElement(Identifier element) {
         return TagEntry.element(element)
-                .tagexclusion_setExclude(true);
+                .tagex_setExclude(true);
     }
 
     /**
@@ -62,6 +62,6 @@ public interface TagEntryExtension {
      */
     static TagEntry excludeOptionalElement(Identifier element) {
         return TagEntry.optionalTag(element)
-                .tagexclusion_setExclude(true);
+                .tagex_setExclude(true);
     }
 }
