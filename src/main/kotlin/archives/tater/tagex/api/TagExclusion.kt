@@ -14,14 +14,14 @@ var TagEntry.isExclude
         tagex_setExclude(value)
     }
 
-fun TagBuilder.excludeElement(element: Identifier) = apply { tagex_excludeElement(element) }
-fun TagBuilder.excludeOptionalElement(element: Identifier) = apply { tagex_excludeOptionalElement(element) }
-fun TagBuilder.excludeTag(tag: Identifier) = apply { tagex_excludeTag(tag) }
-fun TagBuilder.excludeOptionalTag(tag: Identifier) = apply { tagex_excludeOptionalTag(tag) }
-fun TagBuilder.excludeForcedTag(tag: Identifier) = apply { tagex_excludeForcedTag(tag) }
+fun TagBuilder.excludeElement(element: Identifier) { tagex_excludeElement(element) }
+fun TagBuilder.excludeOptionalElement(element: Identifier) { tagex_excludeOptionalElement(element) }
+fun TagBuilder.excludeTag(tag: Identifier) { tagex_excludeTag(tag) }
+fun TagBuilder.excludeOptionalTag(tag: Identifier) { tagex_excludeOptionalTag(tag) }
+fun TagBuilder.excludeForcedTag(tag: Identifier) { tagex_excludeForcedTag(tag) }
 
-fun <E: Any, T: Any> TagAppender<E, T>.exclude(block: E) = apply { tagex_exclude(block) }
-fun <E: Any, T: Any> TagAppender<E, T>.excludeOptional(block: E) = apply { tagex_excludeOptional(block) }
-fun <E: Any, T: Any> TagAppender<E, T>.excludeTag(tag: TagKey<T>) = apply { tagex_excludeTag(tag) }
-fun <E: Any, T: Any> TagAppender<E, T>.excludeOptionalTag(tag: TagKey<T>) = apply { tagex_excludeOptionalTag(tag) }
-fun <E: Any, T: Any> TagAppender<E, T>.forceExcludeTag(tag: TagKey<T>) = apply { tagex_forceExcludeTag(tag) }
+fun <E: Any, T: Any> TagAppender<E, T>.exclude(block: E) { tagex_exclude(block) }
+fun <E: Any, T: Any> TagAppender<E, T>.excludeOptional(block: E) { tagex_excludeOptional(block) }
+fun <E: Any, T: Any> TagAppender<E, T>.excludeTag(tag: TagKey<T>) { tagex_excludeTag(tag) }
+fun <E: Any, T: Any> TagAppender<E, T>.excludeOptionalTag(tag: TagKey<T>) { tagex_excludeOptionalTag(tag) }
+fun <E: Any, T: Any> TagAppender<E, T>.forceExcludeTag(tag: TagKey<T>) { tagex_forceExcludeTag(tag) }
