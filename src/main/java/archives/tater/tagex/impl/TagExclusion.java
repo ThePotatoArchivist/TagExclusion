@@ -27,6 +27,8 @@ public class TagExclusion implements ModInitializer {
 
 	public static final String TAG_ENTRY_EXCLUDE = "tagex:exclude";
 
+	public static final String KOTLIN_DEPRECATION = "If using Kotlin, use the extension functions instead of the interface-injected methods";
+
 	public static final boolean ENCODE_IN_SHORT_FORMAT = Optional.ofNullable(System.getProperty("fabric-api.datagen.modid"))
 			.flatMap(modId -> FabricLoader.getInstance().getModContainer(modId))
 			.map(modContainer ->
