@@ -36,6 +36,20 @@ Example:
 }
 ```
 
+The standard expanded format is also extended.
+
+```json
+{
+  "values": [
+    "#minecraft:logs",
+    {
+      "id": "#minecraft:logs_that_burn",
+      "tagex:exclude": true
+    }
+  ]
+}
+```
+
 ## Depending on Tag Exclusion
 
 Currently, it is recommended to use JitPack to add the mod in Gradle and to jar-in-jar it.
@@ -86,6 +100,8 @@ fabricApi {
     }
 }
 ```
+
+You may need to regenerate your IDE run configurations.
 
 In `fabric.mod.json`:
 
