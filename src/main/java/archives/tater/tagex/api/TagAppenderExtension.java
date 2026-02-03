@@ -6,41 +6,43 @@ import net.minecraft.data.tags.TagAppender;
 import net.minecraft.tags.TagKey;
 
 /**
- * Interface-injected to {@link TagAppender}
+ * Interface-injected to {@link TagAppender} for use in datagen
  */
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public interface TagAppenderExtension<E, T> {
 
     /**
-     * Adds an excluded element
+     * Excludes an element from the tag
      */
     default TagAppender<E, T> tagex_exclude(E block) {
         return (TagAppender<E, T>) this;
     }
 
     /**
-     * Adds an excluded optional element
+     * Excludes an optional element from the tag, so it does not fail at runtime if the element does not exist
      */
     default TagAppender<E, T> tagex_excludeOptional(E block) {
         return (TagAppender<E, T>) this;
     }
 
     /**
-     * Adds an excluded tag
+     * Excludes a tag from the tag
      */
     default TagAppender<E, T> tagex_excludeTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;
     }
 
     /**
-     * Adds an excluded optional tag
+     * Excludes an optional tag from the tag, so it does not fail at runtime if the element does not exist
      */
     default TagAppender<E, T> tagex_excludeOptionalTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;
     }
 
     /**
-     * Force-adds an excluded tag (doesn't fail if the tag isn't initialized, analogous to {@link FabricProvidedTagBuilder#forceAddTag})
+     * Force-excludes a tag from the tag, so it does not fail during datagen if the tag isn't registered during datagen
+     * <p>
+     * Analogous to {@link FabricProvidedTagBuilder#forceAddTag})
      */
     default TagAppender<E, T> tagex_forceExcludeTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;
