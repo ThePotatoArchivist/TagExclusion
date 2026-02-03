@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"archives.tater.tagex.TagExclusion"
+			"archives.tater.tagex.impl.TagExclusion"
 		]
 	},
 	"mixins": [

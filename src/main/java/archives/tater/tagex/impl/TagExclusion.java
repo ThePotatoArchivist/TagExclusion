@@ -1,4 +1,4 @@
-package archives.tater.tagex;
+package archives.tater.tagex.impl;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -36,6 +36,12 @@ public class TagExclusion implements ModInitializer {
 					)
 			)
 			.orElse(false);
+
+	public static <T extends TagEntry> T setExclude(T tagEntry) {
+		tagEntry.tagex_setExclude(true);
+		return tagEntry;
+	}
+
 
 	/**
 	 * @see ExtraCodecs#TAG_OR_ELEMENT_ID

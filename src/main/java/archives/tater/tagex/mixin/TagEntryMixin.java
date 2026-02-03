@@ -1,7 +1,7 @@
 package archives.tater.tagex.mixin;
 
-import archives.tater.tagex.TagExclusion;
-import archives.tater.tagex.api.TagEntryExtension;
+import archives.tater.tagex.impl.TagExclusion;
+import archives.tater.tagex.impl.TagEntryExtension;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
