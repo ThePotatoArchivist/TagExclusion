@@ -1,4 +1,4 @@
-@NullMarked
+@MethodsReturnNonnullByDefault
 package archives.tater.tagex;
 
-import org.jspecify.annotations.NullMarked;
+import net.minecraft.MethodsReturnNonnullByDefault;

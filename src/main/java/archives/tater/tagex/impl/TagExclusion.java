@@ -6,7 +6,7 @@ import net.fabricmc.loader.api.metadata.ModDependency;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.util.ExtraCodecs;
 
@@ -48,8 +48,8 @@ public class TagExclusion implements ModInitializer {
 	 */
 	private static DataResult<ExtraCodecs.TagOrElementLocation> parseTagOrElement(String string) {
 		return string.startsWith("#")
-				? Identifier.read(string.substring(1)).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, true))
-				: Identifier.read(string).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, false));
+				? ResourceLocation.read(string.substring(1)).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, true))
+				: ResourceLocation.read(string).map(identifier -> new ExtraCodecs.TagOrElementLocation(identifier, false));
 	}
 
 	private static TagEntry getTagEntry(ExtraCodecs.TagOrElementLocation location, boolean required) {

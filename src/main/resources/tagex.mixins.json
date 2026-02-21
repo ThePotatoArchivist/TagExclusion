@@ -1,19 +1,21 @@
 {
-	"required": true,
-	"package": "archives.tater.tagex.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"TagAppenderMixin",
-		"TagAppenderMixin$ProvidedTagBuilder1Mixin",
-		"TagAppenderMixin$ProvidedTagBuilder2Mixin",
-		"TagBuilderMixin",
-		"TagEntryMixin",
-		"TagLoaderMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "archives.tater.tagex.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "FabricTagBuilderMixin",
+    "IntrinsicTagAppenderMixin",
+    "TagAppenderMixin",
+    "TagAppenderMixin$ProvidedTagBuilder1Mixin",
+    "TagAppenderMixin$ProvidedTagBuilder2Mixin",
+    "TagBuilderMixin",
+    "TagEntryMixin",
+    "TagLoaderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }

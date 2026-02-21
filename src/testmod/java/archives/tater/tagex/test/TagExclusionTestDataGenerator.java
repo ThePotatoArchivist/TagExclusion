@@ -15,8 +15,8 @@ public class TagExclusionTestDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider((output, registriesFuture) -> new FabricTagProvider.ItemTagProvider(output, registriesFuture) {
             @Override
             protected void addTags(HolderLookup.Provider wrapperLookup) {
-                valueLookupBuilder(ItemTags.ANVIL)
-                        .addOptional(Items.COW_SPAWN_EGG)
+                getOrCreateTagBuilder(ItemTags.ANVIL)
+                        .addOptional(Items.COW_SPAWN_EGG.builtInRegistryHolder().key())
                         .tagex_excludeOptional(Items.CHIPPED_ANVIL)
                         .forceAddTag(ItemTags.LOGS)
                         .tagex_forceExcludeTag(ItemTags.LOGS_THAT_BURN);

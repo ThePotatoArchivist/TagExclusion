@@ -2,9 +2,10 @@
 
 package archives.tater.tagex.api
 
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricProvidedTagBuilder
-import net.minecraft.data.tags.TagAppender
-import net.minecraft.resources.Identifier
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.FabricTagBuilder
+import net.minecraft.data.tags.TagsProvider.TagAppender
+import net.minecraft.resources.ResourceKey
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.TagBuilder
 import net.minecraft.tags.TagKey
 
@@ -16,73 +17,73 @@ import net.minecraft.tags.TagKey
 /**
  * Excludes an element from the tag
  */
-fun TagBuilder.excludeElement(element: Identifier) {
+fun TagBuilder.excludeElement(element: ResourceLocation) {
     tagex_excludeElement(element)
 }
 
 /**
  * Excludes an optional element from the tag, so it does not fail at runtime if the element does not exist
  */
-fun TagBuilder.excludeOptionalElement(element: Identifier) {
+fun TagBuilder.excludeOptionalElement(element: ResourceLocation) {
     tagex_excludeOptionalElement(element)
 }
 
 /**
  * Excludes a tag from the tag
  */
-fun TagBuilder.excludeTag(tag: Identifier) {
+fun TagBuilder.excludeTag(tag: ResourceLocation) {
     tagex_excludeTag(tag)
 }
 
 /**
  * Excludes an optional tag from the tag, so it does not fail at runtime if the element does not exist
  */
-fun TagBuilder.excludeOptionalTag(tag: Identifier) {
+fun TagBuilder.excludeOptionalTag(tag: ResourceLocation) {
     tagex_excludeOptionalTag(tag)
 }
 
 /**
  * Force-excludes a tag from the tag, so it does not fail during datagen if the tag isn't initialized
  *
- * Analogous to [FabricProvidedTagBuilder.forceAddTag]
+ * Analogous to [FabricTagBuilder.forceAddTag]
  */
-fun TagBuilder.excludeForcedTag(tag: Identifier) {
+fun TagBuilder.excludeForcedTag(tag: ResourceLocation) {
     tagex_excludeForcedTag(tag)
 }
 
 /**
  * Excludes an element from the tag
  */
-fun <E: Any, T: Any> TagAppender<E, T>.exclude(block: E) {
-    tagex_exclude(block)
+fun <T: Any> TagAppender<T>.exclude(key: ResourceKey<T>) {
+    tagex_exclude(key)
 }
 
 /**
  * Excludes an optional element from the tag, so it does not fail at runtime if the element does not exist
  */
-fun <E: Any, T: Any> TagAppender<E, T>.excludeOptional(block: E) {
-    tagex_excludeOptional(block)
+fun <T: Any> TagAppender<T>.excludeOptional(key: ResourceKey<T>) {
+    tagex_excludeOptional(key)
 }
 
 /**
  * Excludes a tag from the tag
  */
-fun <E: Any, T: Any> TagAppender<E, T>.excludeTag(tag: TagKey<T>) {
+fun <T: Any> TagAppender<T>.excludeTag(tag: TagKey<T>) {
     tagex_excludeTag(tag)
 }
 
 /**
  * Excludes an optional tag from the tag, so it does not fail at runtime if the element does not exist
  */
-fun <E: Any, T: Any> TagAppender<E, T>.excludeOptionalTag(tag: TagKey<T>) {
+fun <T: Any> TagAppender<T>.excludeOptionalTag(tag: TagKey<T>) {
     tagex_excludeOptionalTag(tag)
 }
 
 /**
  * Force-excludes a tag from the tag, so it does not fail during datagen if the tag isn't initialized
  *
- * Analogous to [FabricProvidedTagBuilder.forceAddTag]
+ * Analogous to [FabricTagBuilder.forceAddTag]
  */
-fun <E: Any, T: Any> TagAppender<E, T>.forceExcludeTag(tag: TagKey<T>) {
+fun <T: Any> TagAppender<T>.forceExcludeTag(tag: TagKey<T>) {
     tagex_forceExcludeTag(tag)
 }
