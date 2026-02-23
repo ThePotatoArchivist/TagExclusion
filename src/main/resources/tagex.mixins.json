@@ -3,11 +3,9 @@
   "package": "archives.tater.tagex.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "FabricTagBuilderMixin",
-    "IntrinsicTagAppenderMixin",
+    "FabricTagProviderInvoker",
+    "TagAppenderAccessor",
     "TagAppenderMixin",
-    "TagAppenderMixin$ProvidedTagBuilder1Mixin",
-    "TagAppenderMixin$ProvidedTagBuilder2Mixin",
     "TagBuilderMixin",
     "TagEntryMixin",
     "TagLoaderMixin"

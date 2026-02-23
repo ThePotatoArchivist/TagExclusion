@@ -2,6 +2,7 @@
 
 package archives.tater.tagex.api
 
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.FabricTagBuilder
 import net.minecraft.data.tags.TagsProvider.TagAppender
 import net.minecraft.resources.ResourceKey
@@ -87,3 +88,20 @@ fun <T: Any> TagAppender<T>.excludeOptionalTag(tag: TagKey<T>) {
 fun <T: Any> TagAppender<T>.forceExcludeTag(tag: TagKey<T>) {
     tagex_forceExcludeTag(tag)
 }
+
+/**
+ * Excludes an element from the tag
+ */
+fun <T: Any> ExcludableTagBuilder<T>.exclude(value: T) {
+    tagex_exclude(value)
+}
+
+/**
+ * Excludes an optional element from the tag, so it does not fail at runtime if the element does not exist
+ */
+fun <T: Any> ExcludableTagBuilder<T>.excludeOptional(value: T) {
+    tagex_excludeOptional(value)
+}
+
+fun <T: Any> FabricTagProvider<T>.getOrCreateExcludableBuilder(tag: TagKey<T>): ExcludableTagBuilder<T> =
+    ExclusionTag.getOrCreateExcludableBuilder(this, tag)

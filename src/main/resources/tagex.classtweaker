@@ -1,5 +1,11 @@
 classTweaker v1 named
 
+extendable method net/minecraft/data/tags/TagsProvider$TagAppender add (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
+accessible method net/minecraft/data/tags/TagsProvider$TagAppender add ([Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
+accessible method net/minecraft/data/tags/TagsProvider$TagAppender addAll (Ljava/util/List;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
+accessible method net/minecraft/data/tags/TagsProvider$TagAppender addOptional (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
+accessible method net/minecraft/data/tags/TagsProvider$TagAppender addTag (Lnet/minecraft/tags/TagKey;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
+accessible method net/minecraft/data/tags/TagsProvider$TagAppender addOptionalTag (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/data/tags/TagsProvider$TagAppender;
 inject-interface net/minecraft/tags/TagEntry archives/tater/tagex/impl/TagEntryExtension
 transitive-inject-interface net/minecraft/tags/TagBuilder archives/tater/tagex/api/TagBuilderExtension
 transitive-inject-interface net/minecraft/data/tags/TagsProvider$TagAppender archives/tater/tagex/api/TagAppenderExtension<TT;>
