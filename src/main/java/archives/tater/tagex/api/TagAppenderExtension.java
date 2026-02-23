@@ -56,4 +56,8 @@ public interface TagAppenderExtension<T> {
     default TagAppender<T> tagex_forceExcludeTag(TagKey<T> tag) {
         throw new AssertionError("Implemented by mixin");
     }
+
+    default TagAppender<T> tagex_forceAddTag(TagKey<T> tag) {
+        throw new AssertionError("Implemented by mixin");
+    }
 }

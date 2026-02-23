@@ -2,6 +2,7 @@ package archives.tater.tagex.mixin;
 
 import archives.tater.tagex.api.TagAppenderExtension;
 
+import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -10,6 +11,7 @@ import net.minecraft.data.tags.TagsProvider.TagAppender;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagBuilder;
+import net.minecraft.tags.TagEntry;
 import net.minecraft.tags.TagKey;
 
 @SuppressWarnings("unchecked")
@@ -53,6 +55,12 @@ public class TagAppenderMixin<T> implements TagAppenderExtension<T> {
     @Override
     public TagAppender<T> tagex_forceExcludeTag(TagKey<T> tag) {
         builder.tagex_excludeForcedTag(tag.location());
+        return (TagAppender<T>) (Object) this;
+    }
+
+    @Override
+    public TagAppender<T> tagex_forceAddTag(TagKey<T> tag) {
+        builder.add(new ForcedTagEntry(TagEntry.element(tag.location())));
         return (TagAppender<T>) (Object) this;
     }
 }
