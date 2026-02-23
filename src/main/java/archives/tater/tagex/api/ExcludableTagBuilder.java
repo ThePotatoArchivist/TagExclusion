@@ -1,5 +1,8 @@
 package archives.tater.tagex.api;
 
+import archives.tater.tagex.impl.ExcludableTagBuilderImpl;
+
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.FabricTagBuilder;
 
 import net.minecraft.data.tags.TagsProvider;
@@ -122,5 +125,13 @@ public abstract class ExcludableTagBuilder<T> extends TagsProvider.TagAppender<T
     public ExcludableTagBuilder<T> tagex_forceExcludeTag(TagKey<T> tag) {
         super.tagex_forceExcludeTag(tag);
         return this;
+    }
+
+    /**
+     * Creates an {@link ExcludableTagBuilder} from a {@link FabricTagProvider} and a {@link TagKey}. Use in place of
+     * {@link FabricTagProvider#getOrCreateTagBuilder} when the tag needs exclusion entries
+     */
+    public static <T> ExcludableTagBuilder<T> getOrCreate(FabricTagProvider<T> provider, TagKey<T> tag) {
+        return new ExcludableTagBuilderImpl<>(provider, tag);
     }
 }

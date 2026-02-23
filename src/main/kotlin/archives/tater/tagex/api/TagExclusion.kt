@@ -104,4 +104,4 @@ fun <T: Any> ExcludableTagBuilder<T>.excludeOptional(value: T) {
 }
 
 fun <T: Any> FabricTagProvider<T>.getOrCreateExcludableBuilder(tag: TagKey<T>): ExcludableTagBuilder<T> =
-    ExclusionTag.getOrCreateExcludableBuilder(this, tag)
+    ExcludableTagBuilder.getOrCreate(this, tag)
