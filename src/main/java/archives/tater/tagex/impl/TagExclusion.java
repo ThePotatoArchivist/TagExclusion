@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ModDependency;
 
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import net.minecraft.resources.ResourceLocation;
@@ -11,10 +13,12 @@ import net.minecraft.tags.TagEntry;
 import net.minecraft.util.ExtraCodecs;
 
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @ApiStatus.Internal
 public class TagExclusion implements ModInitializer {
@@ -60,6 +64,15 @@ public class TagExclusion implements ModInitializer {
 				: required
 						? TagEntry.element(location.id())
 						: TagEntry.optionalElement(location.id());
+	}
+
+	// Utility
+	public static <T> T getOrSet(LocalRef<@Nullable T> ref, Supplier<T> create) {
+		var value = ref.get();
+		if (value != null) return value;
+		var newValue = create.get();
+		ref.set(newValue);
+		return newValue;
 	}
 
 	public static final Codec<TagEntry> TAG_ENTRY_SHORT_CODEC = Codec.STRING.comapFlatMap(
