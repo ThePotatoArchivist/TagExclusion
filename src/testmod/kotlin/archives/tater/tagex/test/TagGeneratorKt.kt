@@ -15,7 +15,6 @@ class TagGeneratorKt(output: FabricDataOutput, registriesFuture: CompletableFutu
         with (getOrCreateExcludableBuilder(ItemTags.LEAVES)) {
             exclude(Items.OAK_LEAVES)
             exclude(Items.NETHER_WART_BLOCK)
-            add(Items.OAK_LEAVES)
         }
     }
 

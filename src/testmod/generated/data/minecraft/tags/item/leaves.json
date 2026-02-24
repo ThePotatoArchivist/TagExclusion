@@ -1,7 +1,6 @@
 {
   "values": [
     "!minecraft:oak_leaves",
-    "!minecraft:nether_wart_block",
-    "minecraft:oak_leaves"
+    "!minecraft:nether_wart_block"
   ]
 }
