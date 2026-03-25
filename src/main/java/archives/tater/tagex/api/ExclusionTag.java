@@ -45,6 +45,6 @@ public class ExclusionTag {
      * Creates an excluded optional element {@link TagEntry}
      */
     public static TagEntry excludeOptionalElement(Identifier element) {
-        return TagExclusion.setExclude(TagEntry.optionalTag(element));
+        return TagExclusion.setExclude(TagEntry.optionalElement(element));
     }
 }

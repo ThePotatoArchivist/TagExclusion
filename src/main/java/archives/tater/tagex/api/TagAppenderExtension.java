@@ -1,6 +1,6 @@
 package archives.tater.tagex.api;
 
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricProvidedTagBuilder;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagAppender;
 
 import net.minecraft.data.tags.TagAppender;
 import net.minecraft.tags.TagKey;
@@ -42,7 +42,7 @@ public interface TagAppenderExtension<E, T> {
     /**
      * Force-excludes a tag from the tag, so it does not fail during datagen if the tag isn't registered during datagen
      * <p>
-     * Analogous to {@link FabricProvidedTagBuilder#forceAddTag})
+     * Analogous to {@link FabricTagAppender#forceAddTag})
      */
     default TagAppender<E, T> tagex_forceExcludeTag(TagKey<T> tag) {
         return (TagAppender<E, T>) this;

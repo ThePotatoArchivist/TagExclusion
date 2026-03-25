@@ -46,7 +46,7 @@ public class TagEntryMixin implements TagEntryExtension {
     }
 
     @WrapOperation(
-            method = "method_43938",
+            method = "lambda$static$5",
             at = @At(value = "FIELD", target = "Lnet/minecraft/tags/TagEntry;required:Z", opcode = Opcodes.GETFIELD)
     )
     private static boolean longFormIfExclude(TagEntry instance, Operation<Boolean> original) {

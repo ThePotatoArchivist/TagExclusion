@@ -1,4 +1,4 @@
-classTweaker v1 named
+classTweaker v1 official
 
 inject-interface net/minecraft/tags/TagEntry archives/tater/tagex/impl/TagEntryExtension
 transitive-inject-interface net/minecraft/tags/TagBuilder archives/tater/tagex/api/TagBuilderExtension

@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "minecraft:zoo",
+      "id": "minecraft:zombie",
       "tagex:exclude": true,
       "required": false
     }

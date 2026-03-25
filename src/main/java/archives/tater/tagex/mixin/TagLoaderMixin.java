@@ -17,7 +17,7 @@ public class TagLoaderMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/tags/TagEntry;build(Lnet/minecraft/tags/TagEntry$Lookup;Ljava/util/function/Consumer;)Z"),
             index = 1
     )
-    private <T> Consumer<T> excludeEntries(Consumer<T> consumer, @Local TagLoader.EntryWithSource tagEntry, @Local SequencedSet<T> entries) {
+    private <T> Consumer<T> excludeEntries(Consumer<T> consumer, @Local(name = "entry") TagLoader.EntryWithSource tagEntry, @Local(name = "values") SequencedSet<T> entries) {
         return tagEntry.entry().tagex_exclude() ? entries::remove : consumer;
     }
 }
