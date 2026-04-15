@@ -22,7 +22,7 @@
 	"mixins": [
 		"tagex.mixins.json"
 	],
-	"accessWidener": "tagex.classtweaker",
+	"accessWidener": "tagex.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21",
@@ -32,6 +32,11 @@
 	"custom": {
 		"modmenu": {
 			"badges": [ "library" ]
-		}
+		},
+        "loom:injected_interfaces": {
+            "net/minecraft/class_3497": ["archives/tater/tagex/impl/TagEntryExtension"],
+            "net/minecraft/class_3495": ["archives/tater/tagex/api/TagBuilderExtension"],
+            "net/minecraft/class_2474\u0024class_5124": ["archives/tater/tagex/api/TagAppenderExtension<TT;>"]
+        }
 	}
 }

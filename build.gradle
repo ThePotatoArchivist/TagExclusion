@@ -71,7 +71,7 @@ loom {
 		}
 	}
 
-	accessWidenerPath = file("src/main/resources/tagex.classtweaker")
+	accessWidenerPath = file("src/main/resources/tagex.accesswidener")
 }
 
 dependencies {
