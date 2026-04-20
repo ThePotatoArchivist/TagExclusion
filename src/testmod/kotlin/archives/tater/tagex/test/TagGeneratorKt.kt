@@ -16,6 +16,8 @@ class TagGeneratorKt(output: FabricDataOutput, registriesFuture: CompletableFutu
             exclude(Items.OAK_LEAVES)
             exclude(Items.NETHER_WART_BLOCK)
         }
+
+        getOrCreateExcludableBuilder(ItemTags.ACACIA_LOGS)
     }
 
     override fun getName(): String = "Item tags 2"
