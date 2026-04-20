@@ -1,0 +1,11 @@
+# Don't load mod on neoforge
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+issueTrackerURL="https://github.com/ThePotatoArchivist/TagExclusion"
+
+[[mods]]
+modId="tagexclusion"
+version="1.1.2+connector+mc1.21.1"
+displayName="Tag Exclusion"
+description="Should not be loaded, remove from modpack"
