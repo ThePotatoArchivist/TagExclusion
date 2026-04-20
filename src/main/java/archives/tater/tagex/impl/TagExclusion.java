@@ -1,9 +1,6 @@
 package archives.tater.tagex.impl;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.metadata.ModDependency;
-
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 
 import com.mojang.serialization.Codec;
@@ -17,7 +14,6 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 @ApiStatus.Internal
@@ -28,18 +24,6 @@ public class TagExclusion implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	public static final String TAG_ENTRY_EXCLUDE = "tagex:exclude";
-
-	public static final boolean ENCODE_IN_SHORT_FORMAT = Optional.ofNullable(System.getProperty("fabric-api.datagen.modid"))
-			.flatMap(modId -> FabricLoader.getInstance().getModContainer(modId))
-			.map(modContainer ->
-					modContainer.getMetadata().getDependencies().stream().anyMatch(modDependency ->
-							modDependency.getKind() == ModDependency.Kind.DEPENDS &&
-									modDependency.getModId().equals(TagExclusion.MOD_ID)
-					)
-			)
-			.orElse(false);
 
 	public static <T extends TagEntry> T setExclude(T tagEntry) {
 		tagEntry.tagex_setExclude(true);

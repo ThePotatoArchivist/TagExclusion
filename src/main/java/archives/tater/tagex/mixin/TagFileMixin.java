@@ -1,6 +1,7 @@
 package archives.tater.tagex.mixin;
 
 import archives.tater.tagex.impl.TagEntryExtension;
+import archives.tater.tagex.impl.TagExclusion;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,9 +35,9 @@ public class TagFileMixin {
     private static Codec<TagFile> addRemoveField(Codec<TagFile> original) {
         return RecordCodecBuilder.create(instance -> instance.group(
                 MapCodec.assumeMapUnsafe(original).forGetter(Function.identity()),
-                TagEntry.CODEC.listOf().fieldOf("remove").forGetter(file -> file.entries().stream().filter(TagEntryExtension::tagex_exclude).toList())
+                TagEntry.CODEC.listOf().optionalFieldOf("remove", List.of()).forGetter(file -> file.entries().stream().filter(TagEntryExtension::tagex_exclude).toList())
         ).apply(instance, (file, removals) -> new TagFile(
-                Stream.concat(file.entries().stream(), removals.stream().map(entry -> entry.tagex_setExclude(true))).toList(),
+                Stream.concat(file.entries().stream(), removals.stream().map(TagExclusion::setExclude)).toList(),
                 file.replace()
         )));
     }
