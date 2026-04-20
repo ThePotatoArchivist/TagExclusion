@@ -1,8 +1,16 @@
 {
+  "remove": [
+    {
+      "id": "#minecraft:chipped_anvil",
+      "required": false
+    },
+    "#minecraft:logs_that_burn"
+  ],
   "values": [
-    "minecraft:cow_spawn_egg?",
-    "!#minecraft:chipped_anvil?",
-    "#minecraft:logs",
-    "!#minecraft:logs_that_burn"
+    {
+      "id": "minecraft:cow_spawn_egg",
+      "required": false
+    },
+    "#minecraft:logs"
   ]
 }

@@ -1,6 +1,7 @@
 {
-  "values": [
-    "!minecraft:oak_leaves",
-    "!minecraft:nether_wart_block"
-  ]
+  "remove": [
+    "minecraft:oak_leaves",
+    "minecraft:nether_wart_block"
+  ],
+  "values": []
 }

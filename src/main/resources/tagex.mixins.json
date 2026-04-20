@@ -8,6 +8,7 @@
     "TagAppenderMixin",
     "TagBuilderMixin",
     "TagEntryMixin",
+    "TagFileMixin",
     "TagLoaderMixin"
   ],
   "injectors": {
