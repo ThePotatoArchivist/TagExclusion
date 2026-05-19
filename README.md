@@ -1,5 +1,9 @@
 # Tag Exclusion
 
+**This library is now obsolete on 26.1+, as [Fabric API](https://github.com/FabricMC/fabric-api/pull/5365) and [Neoforge](https://docs.neoforged.net/docs/resources/server/tags/#tag-file-format) now both contain ways to remove entries from tag files.**
+
+---
+
 A Minecraft mod library & utility to allow removing entries from tags.
 
 ## Syntax
