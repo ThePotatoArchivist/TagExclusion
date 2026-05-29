@@ -8,7 +8,7 @@ A Minecraft mod library & utility to allow removing entries from tags.
 
 ## Syntax
 
-There is now an abbreivated syntax for tag entries. You can add a `?` at the end of an entry to mark it as optional and 
+There is now an abbreviated syntax for tag entries. You can add a `?` at the end of an entry to mark it as optional and 
 a `!` at the beginning of an entry to mark it as an exclusion entry.
 
 Exclusion entries will be removed from the tag, including from previous entries in the same tag file and from entries
